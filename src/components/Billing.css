@@ -1,0 +1,49 @@
+.billingContainer {
+    display: flex;
+}
+
+.displayBilling {
+  border: 1px solid #ccc;
+  padding: 16px;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.billingSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  border: 1px solid #ccc;
+  width: 350px;
+  height: 100vh;
+  padding: 16px;
+  position: sticky;
+}
+
+.displayBilling h2{
+    padding-bottom: 20px;
+}
+
+.billingItems{
+    list-style-type: none;
+    padding: 10px;
+}
+.billingItems li{
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.billTable .cell{
+    font-weight: bold;
+    padding: 4px;
+}
+.billingSummary > h2 {
+    margin: 0;
+}
+.billingSummary > h4 {
+    margin: 8px 0;
+}
+.billingSummary > h6 {
+    margin: 4px 0;
+}

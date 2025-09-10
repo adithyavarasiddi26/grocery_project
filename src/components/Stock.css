@@ -1,0 +1,88 @@
+.stock-message {
+  background: #e6f7e6;
+  color: #207520;
+  border: 1px solid #b2e2b2;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  text-align: center;
+}
+.stock-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 2rem;
+}
+
+.stock-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+.add-stock-btn {
+  display: block;
+  margin: 0 auto 1rem auto;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-stock-btn:hover {
+  background: #0056b3;
+}
+
+.stock-form {
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+.stock-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.7rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.stock-form button {
+  width: 100%;
+  padding: 0.7rem;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.stock-form button:hover {
+  background: #218838;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+.stock-table th, .stock-table td {
+  border: 1px solid #ddd;
+  padding: 0.7rem;
+  text-align: left;
+}
+.stock-table th {
+  background: #f0f0f0;
+  color: #333;
+}
