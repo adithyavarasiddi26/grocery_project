@@ -1,0 +1,29 @@
+.total-sale-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #84A98C;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 1.2em;
+    color: black;
+}
+.total-sale-container h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.conatiner-ts{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.ToggleButtonGroup{
+    color: aquamarine;
+}

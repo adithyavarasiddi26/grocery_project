@@ -1,0 +1,42 @@
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-table-container {
+  background: #CAD2C5;
+}
+
+.editInputBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.editInputBlock label {
+  flex: 0 0 120px;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 8px;
+}
+.editInputBlock input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.deleteIcon{
+  color: #e63946;
+  cursor: pointer;
+}
+.deleteIcon:hover{
+  color: #9C2A20;
+  transform: scale(1.1);
+}

@@ -1,0 +1,180 @@
+.billingContainer {
+    display: flex;
+}
+
+.displayBilling {
+  border: 1px solid #ccc;
+  padding: 16px;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.billingHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.billingSummary {
+      position: sticky;
+      top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #84A98C;
+    border-radius: 8px;
+  /* border: 1px solid #ccc; */
+  width: 350px;
+  height: 70vh;
+  overflow-y: auto;
+  padding: 16px;
+
+}
+.billingList {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.billingItems{
+    list-style-type: none;
+    padding: 10px;
+}
+.billingItems li{
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+    font-size: 16px;
+}
+
+.billTable .cell{
+    font-weight: bold;
+    padding: 4px;
+}
+.billingSummary > h2 {
+    margin: 0;
+}
+.billingSummary > h4 {
+    margin: 8px 0;
+}
+.billingSummary > h6 {
+    margin: 4px 0;
+}
+.billPageHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.billPageHeaderInput{
+    padding-left: 20px;
+    margin-bottom: 12px;
+    padding: 6px;
+    width: 40%;
+    margin-left: 20px;
+}
+
+.billingSummary *{
+    color: black;
+}
+
+.Card.out-of-stock {
+    background: #ffc0c0;
+    border: 0;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+
+.Card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    padding: 1.5rem 2rem;
+    width: 260px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #eee;
+    color: #222;
+    transition: box-shadow 0.2s, transform 0.2s, background 0.2s, border 0.2s;
+}
+.Card:hover {
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    transform: scale(1.05);
+    cursor: pointer;
+    background: #84A98C;
+    border:  #222;
+    
+}
+.Card * {
+    margin: 0.5rem 0;
+    font-family: "Libre Baskerville", serif;
+}
+
+.floatingContainer {
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+.floatingContainer .floatingCard {
+    width: 350px;
+    height: 240px;
+    background-color: #84A98C;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    position: relative;
+}
+
+.closeButtonx {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: transparent;
+    border: none;
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    line-height: 1;
+}
+ .closeButtonx:hover {
+    color: #e5383b;
+}
+.floatingContainer .floatingCard input{
+    width: 80%;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.floatingContainer .floatingCard input:focus {
+    border: 1px solid #354F52;
+}

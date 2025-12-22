@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+html{
+    background-color: #CAD2C5;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.btn{
+    background-color: #2F3E46;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn:hover{
+    background-color: #66896d;
+    color: black;
+    transform: scale(1.05);
+}
+
+.btn:disabled{
+    background-color: #A8A8A8;
+    color: #666666;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+.closeButton{
+    background-color: #E07A5F;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.closeButton:hover{
+    background-color: #9C2A20;
+    color: white;
+    transform: scale(1.05);
+}
+
+input,textarea {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    outline: none;
+    padding: 10px 14px;
+    font-size: 15px;
+    color: #222;
+    box-sizing: border-box;
+}
+input:focus,textarea:focus {
+    border: 1.5px solid #52796F;
+    background: #fff;
+}
+input:disabled,textarea:disabled {
+    background: #e0e4e7;
+    color: #4a4a4a;
+}
+
+select {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    outline: none;
+    padding: 10px 14px;
+    font-size: 15px;
+    color: #222;
+    box-sizing: border-box;
+}
+select:focus {
+    border: 1.5px solid #52796F;
+    background: #fff;
+}
+select option{
+    font-size: 15px;
+}

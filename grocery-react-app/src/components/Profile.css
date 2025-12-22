@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+}
+
+.main-content{
+    margin-left: 0;
+    padding: 30px;
+    flex-grow: 1;
+}
+.nameHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.info-section{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+input{
+    width: 100%;
+}
+
+.input-group{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    column-gap: 15px;
+    row-gap: 30px;
+    margin: 10px;
+}
+label{
+    margin-left: 5px;
+}
+
+.text-label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text-label .full-width{
+    grid-column: span 2;
+}
+
+.input-group .full-width{
+    grid-column: span 2;
+}
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.resetButton{
+    display: flex;
+    justify-content: center;
+}
