@@ -73,10 +73,18 @@ async function setupDatabase() {
     console.log('✓ Bill items table created');
 
     console.log('\n✅ Database setup completed successfully!');
-    process.exit(0);
+    await pool.end();
+    return true;
   } catch (error) {
-    console.error('❌ Error setting up database:', error);
-    process.exit(1);
+    console.error('⚠️  Warning setting up database:', error.message);
+    console.log('Tables may already exist or there was a connection issue.');
+    console.log('Continuing with server startup...');
+    try {
+      await pool.end();
+    } catch (e) {
+      // ignore
+    }
+    return false;
   }
 }
 
