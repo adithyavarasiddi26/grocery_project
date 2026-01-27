@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node index.js",
-    "setup-db": "node setup-db.js"
+    "setup-db": "node setup-db.js",
+    "setup-and-start": "node setup-db.js && node index.js"
   },
   "dependencies": {
     "express": "^5.1.0",
