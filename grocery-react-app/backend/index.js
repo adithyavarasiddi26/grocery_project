@@ -9,21 +9,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
-// CORS configuration
-const corsOptions = {
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://grocery-management-frontend.onrender.com',
-    process.env.FRONTEND_URL || 'http://localhost:5173'
-  ],
-  credentials: true,
+// CORS configuration - Allow all origins in production for now
+app.use(cors({
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
-};
+}));
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Handle preflight requests
+app.options('*', cors()); // Handle preflight requests
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
