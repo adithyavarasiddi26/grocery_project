@@ -20,6 +20,15 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
+console.log('=== Environment Configuration ===');
+console.log('DB_HOST:', process.env.DB_HOST || 'NOT SET');
+console.log('DB_USER:', process.env.DB_USER || 'NOT SET');
+console.log('DB_NAME:', process.env.DB_NAME || 'NOT SET');
+console.log('DB_PORT:', process.env.DB_PORT || 'NOT SET');
+console.log('NODE_ENV:', process.env.NODE_ENV || 'development');
+console.log('PORT:', PORT);
+console.log('================================');
+
 
 const pool = new Pool({
   user: process.env.DB_USER,
