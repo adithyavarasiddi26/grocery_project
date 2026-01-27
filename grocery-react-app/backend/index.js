@@ -41,6 +41,15 @@ const pool = new Pool({
   },
 });
 
+// Test database connection
+pool.on('error', (err) => {
+  console.error('Database pool error:', err);
+});
+
+pool.on('connect', () => {
+  console.log('✓ Database connected successfully');
+});
+
 // Initialize database tables on startup
 async function initializeDatabase() {
   try {
@@ -121,8 +130,11 @@ app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) return res.status(400).json({ error: 'Email and password required' });
+    
+    console.log('Login attempt for:', email);
     const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
     const user = result.rows[0];
+    
     if (user && await bcrypt.compare(password, user.password)) {
       const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET || 'default_secret');
       res.json({ token });
@@ -130,7 +142,7 @@ app.post('/login', async (req, res) => {
       res.status(401).json({ error: 'Invalid credentials' });
     }
   } catch (err) {
-    console.error('Login error:', err);
+    console.error('Login error:', err.message, err.stack);
     res.status(500).json({ error: 'Server error: ' + err.message });
   }
 });
