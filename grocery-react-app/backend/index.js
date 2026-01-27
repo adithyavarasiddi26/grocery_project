@@ -15,18 +15,18 @@ const PORT = process.env.PORT || 5000;
 
 
 const pool = new Pool({
-  user: 'postgres', // change to your postgres user
-  host: 'localhost',
-  database: 'grocerydb', // change to your database name
-  password: 'postgres', // change to your postgres password
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // Signup endpoint
 app.post('/signup', async (req, res) => {
   const { email, password, phone, shop_name ,name, shop_address } = req.body;
   if (!email || !password || !phone || !shop_name || !name || !shop_address) return res.status(400).json({ error: 'All fields are required' });
-  const hashed = await bcrypt.hash(password, 10);
+  const hashed = await bcrypt.hash(password, parseInt(process.env.BCRYPT_ROUNDS) || 10);
   try {
     await pool.query('INSERT INTO users (email, password, phone, shop_name, name, address) VALUES ($1, $2, $3, $4, $5, $6)', [email, hashed, phone, shop_name, name, shop_address]);
     res.status(201).json({ message: 'User created' });
@@ -42,7 +42,7 @@ app.post('/login', async (req, res) => {
   const result = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
   const user = result.rows[0];
   if (user && await bcrypt.compare(password, user.password)) {
-    const token = jwt.sign({ id: user.id, email: user.email }, 'your_jwt_secret');
+    const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET);
     res.json({ token });
   } else {
     res.status(401).json({ error: 'Invalid credentials' });
@@ -54,7 +54,7 @@ const authenticate = (req, res, next) => {
   if (!authHeader) return res.status(401).json({ error: 'No token provided' });
   const token = authHeader.split(' ')[1];
   try {
-    const decoded = jwt.verify(token, 'your_jwt_secret');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch {

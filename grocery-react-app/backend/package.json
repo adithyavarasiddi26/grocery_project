@@ -1,0 +1,23 @@
+{
+  "name": "grocery-backend",
+  "version": "1.0.0",
+  "description": "Grocery management backend",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "puppeteer": "^24.22.3",
+    "dotenv": "^16.0.3"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
