@@ -16,7 +16,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options('*', cors()); // Handle preflight requests
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
