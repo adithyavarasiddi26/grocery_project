@@ -5,6 +5,8 @@ import jwt from 'jsonwebtoken';
 import { Pool } from 'pg';
 import fs from "fs";
 import puppeteer from 'puppeteer';
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
