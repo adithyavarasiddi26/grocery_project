@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import API_BASE_URL from '../../config/api';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import './TotalSale.css';
@@ -17,7 +18,7 @@ const TotalSale = () => {
   };
     const fetchTotalSale = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/analysis?type=${toggle}&time=${time}`, {
+      const res = await fetch(`${API_BASE_URL}/analysis?type=${toggle}&time=${time}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }, method: 'GET'

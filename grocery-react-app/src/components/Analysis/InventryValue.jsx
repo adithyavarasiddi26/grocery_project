@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import API_BASE_URL from '../../config/api';
 import { useNavigate } from "react-router-dom";
 import './InventryValue.css';
 
@@ -10,7 +11,7 @@ const InventryValue = () => {
   useEffect(() => {
     const fetchInventry = async () => {
       try {
-        const response = await fetch('http://localhost:5000/analysis/inventoryValue', {
+        const response = await fetch(`${API_BASE_URL}/analysis/inventoryValue`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`

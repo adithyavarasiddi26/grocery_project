@@ -1,4 +1,5 @@
 // import React from 'react';
+import API_BASE_URL from '../config/api';
 import './CustomTable.css';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -57,7 +58,7 @@ function CustomTable(props) {
     // For now, just close the row and optionally update the table
     console.log({ id, editRows });
     const token = localStorage.getItem('token');
-    const res = await fetch('http://localhost:5000/update', {
+    const res = await fetch(`${API_BASE_URL}/update`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json',
                   'Authorization': `Bearer ${token}`
@@ -75,7 +76,7 @@ function CustomTable(props) {
   const handleDelete = async(id) => {
     if(window.confirm("Are you sure you want to Delete?")){
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/delete`, {
+      const res = await fetch(`${API_BASE_URL}/delete`, {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json',

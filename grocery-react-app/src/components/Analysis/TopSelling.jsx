@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../../config/api';
 import { BarChart } from '@mui/x-charts/BarChart';
 
 const TopSelling = () => {
@@ -10,7 +11,7 @@ const TopSelling = () => {
 
   const fetchTopSellingItems = async () => {
     try {
-      const response = await fetch('http://localhost:5000/analysis/top-selling-items', {
+      const response = await fetch(`${API_BASE_URL}/analysis/top-selling-items`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }

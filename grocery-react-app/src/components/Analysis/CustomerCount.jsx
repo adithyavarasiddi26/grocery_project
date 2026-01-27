@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+import API_BASE_URL from '../../config/api';
 import './CustomerCount.css';
 
 const CustomerCount = () => {
     const [customerCount, setCustomerCount] = React.useState(0);
     const fetchCustomerCount = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/analysis/customerCount`, {
+      const res = await fetch(`${API_BASE_URL}/analysis/customerCount`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }, method: 'GET'

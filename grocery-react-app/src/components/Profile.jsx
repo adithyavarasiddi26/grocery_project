@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import API_BASE_URL from '../config/api';
 import './Profile.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,7 +37,7 @@ function Profile() {
     }
     if (window.confirm("Are you sure you want to save?")) {
       try {
-        const response = await fetch('http://localhost:5000/profile', {
+        const response = await fetch(`${API_BASE_URL}/profile`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ function Profile() {
 
   async function fetchUserDetails() {
       try {
-        const response = await fetch('http://localhost:5000/profile'
+        const response = await fetch(`${API_BASE_URL}/profile`
         , {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`

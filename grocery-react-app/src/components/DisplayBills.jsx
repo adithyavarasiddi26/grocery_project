@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from "react";
+import API_BASE_URL from '../config/api';
 import './DisplayBills.css';
 // import './DisplayStock.css';
 import Table from '@mui/material/Table';
@@ -27,7 +28,7 @@ function DisplayBills() {
     const [searchTerm, setSearchTerm] = useState('');
     const fetchBills = async () => {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/bills', {
+        const res = await fetch(`${API_BASE_URL}/bills`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -55,7 +56,7 @@ function DisplayBills() {
 
   const viewBill = async (billId, customerPhone, totalAmount, paymentMode) => {
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:5000/bills/${billId}`, {
+    const res = await fetch(`${API_BASE_URL}/bills/${billId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       },
@@ -74,7 +75,7 @@ function DisplayBills() {
 
   async function downloadPDF(billnum, billDetails) {
                 alert("Generating PDF...");
-            const result = await fetch('http://localhost:5000/generate-pdf', {
+            const result = await fetch(`${API_BASE_URL}/generate-pdf`, {
               method: 'POST',
               headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,

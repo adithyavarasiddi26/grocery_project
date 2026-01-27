@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import API_BASE_URL from '../../config/api';
 import { LineChart } from '@mui/x-charts/LineChart';
 import './SaleTrends.css';
 
@@ -11,7 +12,7 @@ const SaleTrends = () => {
     const [radioValue, setRadioValue] = useState('Sale');
 const salesTrends = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/analysis/salesTrends`, {
+      const res = await fetch(`${API_BASE_URL}/analysis/salesTrends`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }, method: 'GET'

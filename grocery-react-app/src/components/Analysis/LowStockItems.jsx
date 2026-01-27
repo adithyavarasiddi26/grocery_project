@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_BASE_URL from '../../config/api';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -20,7 +21,7 @@ const LowStockItems = () => {
     const [selectedQty, setSelectedQty] = useState(5);
     const fetchLowStockItems = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/analysis/lowStockItems`, {
+      const res = await fetch(`${API_BASE_URL}/analysis/lowStockItems`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'

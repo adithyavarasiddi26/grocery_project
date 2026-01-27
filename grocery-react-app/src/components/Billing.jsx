@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import API_BASE_URL from '../config/api';
 // import DisplayStock from './DisplayStock';
 // import DisplayBills from './DisplayBills';
 import './Billing.css';
@@ -22,7 +23,7 @@ function Billing() {
   const navigate = useNavigate();
     const fetchShopDetails = async () => {
       const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/user/shopdetails', {
+      const res = await fetch(`${API_BASE_URL}/user/shopdetails`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -46,7 +47,7 @@ function Billing() {
 
       const fetchStockList = async () => {
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:5000/bill/stock', {
+                const response = await fetch(`${API_BASE_URL}/bill/stock`, {
                   headers: {
                     'Authorization': `Bearer ${token}`
                   }
@@ -103,7 +104,7 @@ function Billing() {
 
          async function generatePDF(billnum) {
             alert("Generating PDF...");
-            const result = await fetch('http://localhost:5000/generate-pdf', {
+            const result = await fetch(`${API_BASE_URL}/generate-pdf`, {
               method: 'POST',
               headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -144,7 +145,7 @@ function Billing() {
             const filteredData= billingList.map(({product_name,selectedQty})=>({product_name,selectedQty}));
             console.log("Filtered Data: ", filteredData);
             try {
-            const response = await fetch('http://localhost:5000/generate-bill', {
+            const response = await fetch(`${API_BASE_URL}/generate-bill`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

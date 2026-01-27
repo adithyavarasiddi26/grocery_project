@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 import './Signup.css';
 
 function Signup() {
@@ -26,7 +27,7 @@ function Signup() {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/signup', {
+      const res = await fetch(`${API_BASE_URL}/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, phone, shop_name: shopName, name, shop_address: shopAddress }),

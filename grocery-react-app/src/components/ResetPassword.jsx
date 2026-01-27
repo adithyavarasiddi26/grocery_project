@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from '../config/api';
 import "./ResetPassword.css";
 
 function ResetPassword() {
@@ -40,7 +41,7 @@ function ResetPassword() {
         return;
       }
       
-      const response = await fetch('http://localhost:5000/reset-password', {
+      const response = await fetch(`${API_BASE_URL}/reset-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

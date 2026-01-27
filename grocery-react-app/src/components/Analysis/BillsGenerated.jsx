@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+import API_BASE_URL from '../../config/api';
 import { LineChart } from '@mui/x-charts/LineChart';
 
 const BillsGenerated = () => {
@@ -6,7 +7,7 @@ const BillsGenerated = () => {
 
     const fetchBillsGenerated = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/analysis/billsGenerated`, {
+      const res = await fetch(`${API_BASE_URL}/analysis/billsGenerated`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }, method: 'GET'

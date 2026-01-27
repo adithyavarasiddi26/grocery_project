@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import API_BASE_URL from '../config/api';
 import './Stock.css';
 import CustomTable from './CustomTable';
 import Card from '@mui/material/Card';
@@ -35,7 +36,7 @@ function Stock() {
   const fetchOutOfStockItems = async () => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/stock/outofstock', {
+      const res = await fetch(`${API_BASE_URL}/stock/outofstock`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -54,7 +55,7 @@ function Stock() {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch('http://localhost:5000/stock', {
+      const res = await fetch(`${API_BASE_URL}/stock`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +90,7 @@ function Stock() {
   const [stockList, setStockList] = useState([]);
           const fetchStockList = async () => {
           const token = localStorage.getItem('token');
-          const response = await fetch('http://localhost:5000/getstock', {
+          const response = await fetch(`${API_BASE_URL}/getstock`, {
             headers: {
               'Authorization': `Bearer ${token}`,
               'Content-Type': 'application/json'
@@ -107,7 +108,7 @@ function Stock() {
     if (!window.confirm("Are you sure you want to Delete?")) return;
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:5000/delete`, {
+      const res = await fetch(`${API_BASE_URL}/delete`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
