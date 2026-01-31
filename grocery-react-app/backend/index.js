@@ -118,10 +118,16 @@ app.post('/signup', async (req, res) => {
   if (!email || !password || !phone || !shop_name || !name || !shop_address) return res.status(400).json({ error: 'All fields are required' });
   const hashed = await bcrypt.hash(password, parseInt(process.env.BCRYPT_ROUNDS) || 10);
   try {
+    console.log('Signup attempt for:', email);
     await pool.query('INSERT INTO users (email, password, phone, shop_name, name, address) VALUES ($1, $2, $3, $4, $5, $6)', [email, hashed, phone, shop_name, name, shop_address]);
     res.status(201).json({ message: 'User created' });
   } catch (err) {
-    res.status(400).json({ error: 'User already exists' });
+    console.error('Signup error:', err.message, err.code);
+    if (err.code === '23505') { // unique_violation
+      res.status(400).json({ error: 'User already exists' });
+    } else {
+      res.status(500).json({ error: 'Database error: ' + err.message });
+    }
   }
 });
 
