@@ -131,6 +131,17 @@ app.post('/signup', async (req, res) => {
   }
 });
 
+// Debug endpoint to check existing users (remove in production)
+app.get('/debug/users', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT id, email, name, shop_name, created_at FROM users');
+    res.json({ users: result.rows });
+  } catch (err) {
+    console.error('Debug users error:', err);
+    res.status(500).json({ error: 'Database error' });
+  }
+});
+
 // Login endpoint
 app.post('/login', async (req, res) => {
   try {
